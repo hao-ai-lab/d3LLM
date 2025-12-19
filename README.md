@@ -77,9 +77,9 @@ The d3LLM framework combines two key innovations:
 
 Instead of random masking, we extract the teacher model's decoding order—the sequence in which it unmasks tokens. This pseudo-trajectory guides the student model to learn efficient generation patterns.
 
-- **Pseudo-Trajectory Extraction** → 25% TPF improvement
-- **Progressive Noise Schedule** → Additional 28% TPF boost
-- **Progressive Window Sizing** → Another 10% TPF gain
+- **Pseudo-Trajectory Extraction** → 18% TPF improvement
+- **Progressive Noise Schedule** → Additional 12% TPF boost
+- **Progressive Window Sizing** → Another 8% TPF gain
 
 <div align="center">
 
