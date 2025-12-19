@@ -77,9 +77,9 @@ The d3LLM framework combines two key innovations:
 
 Instead of random masking, we extract the teacher model's decoding order—the sequence in which it unmasks tokens. This pseudo-trajectory guides the student model to learn efficient generation patterns.
 
-- **Pseudo-Trajectory Extraction** → 15% TPF improvement
-- **Progressive Noise Schedule** → Additional 18% TPF boost
-- **Progressive Window Sizing** → Another 8% TPF gain
+- **Pseudo-Trajectory Extraction** → 25% TPF improvement
+- **Progressive Noise Schedule** → Additional 28% TPF boost
+- **Progressive Window Sizing** → Another 10% TPF gain
 
 <div align="center">
 
@@ -93,8 +93,8 @@ Instead of random masking, we extract the teacher model's decoding order—the s
 
 We enable parallel decoding across multiple blocks simultaneously using entropy-based token selection.
 
-- **Entropy-Based Multi-Block Decoding** → 20% TPF improvement
-- **KV-Cache with Periodic Refresh** → 20% TPS boost in long contexts
+- **Entropy-Based Multi-Block Decoding** → 30% TPF improvement
+- **KV-Cache with Periodic Refresh** → 35% TPS boost in long contexts
 - **Early Stopping on EOS** → 5% TPF gain
 
 <div align="center">
