@@ -5,19 +5,19 @@
 [![d3LLM-Dream](https://img.shields.io/badge/🤗-d3LLM--Dream-yellow)](https://huggingface.co/d3LLM/d3LLM_Dream)
 [![d3LLM-LLaDA](https://img.shields.io/badge/🤗-d3LLM--LLaDA-yellow)](https://huggingface.co/d3LLM/d3LLM_LLaDA)
 [![d3LLM-Coder](https://img.shields.io/badge/🤗-d3LLM--Coder-yellow)](https://huggingface.co/d3LLM/d3LLM_Dream_Coder)
-[![Paper](https://img.shields.io/badge/Paper-Coming%20Soon-orange)](https://www.lamda.nju.edu.cn/qianyy/bib/to-appear.html)
+[![Paper](https://img.shields.io/badge/Paper-arXiv:2601.07568-orange)](https://arxiv.org/abs/2601.07568)
 
-We introduce a novel recipe for building an ultra-fast diffusion language model named ***d3LLM*** (_pseuDo-Distilled Diffusion LLM_) 🚀.
+This is the official implementation of the paper [d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation](https://arxiv.org/abs/2601.07568), where we introduce a novel recipe for building an ultra-fast diffusion language model named ***d3LLM*** (_pseuDo-Distilled Diffusion LLM_) 🚀.
 
 ## 📣 News
-
+- `[2026/01/12]`: We release the paper on 📄ArXiv! See our [paper](https://arxiv.org/abs/2601.07568).
 - `[2025/12/11]`: We release the models on Huggingface 🤗, see our [d3LLM-LLaDA](https://huggingface.co/d3LLM/d3LLM_LLaDA), [d3LLM-Dream](https://huggingface.co/d3LLM/d3LLM_Dream), and [d3LLM-Dream-Coder](https://huggingface.co/d3LLM/d3LLM_Dream_Coder).
 - `[2025/12/11]`: We release the training scripts, training datasets, and evaluation code for d3LLM, see [our GitHub repo](https://github.com/hao-ai-lab/d3LLM).
 - `[2025/12/10]`: We release the 🌐 [blog](https://hao-ai-lab.github.io/blogs/text-diffusion/).
 
 ## ✨ Demo
 
-Demo of d3LLM: Achieve up to 5× speedup over autoregressive models (Qwen-2.5-7B-it) on H100 GPU and 3.6× speedup on A100 GPU. **You can try 🕹️ [our demo](https://d3llm-team.github.io/).**
+Demo of d3LLM: Achieve up to 5× speedup over autoregressive models (Qwen-2.5-7B-it) on H100 GPU and 3.6× speedup on A100 GPU, and 10× speedup over the vanilla Dream/LLaDA. **You can try 🕹️ [our demo](https://d3llm-team.github.io/).**
 
 <div align="center">
 
@@ -176,24 +176,6 @@ We further present a leaderboard that compares different diffusion LLMs across f
 dLLM. **More details can be found in [AUP_leaderboard](AUP_leaderboard/) and 🌐 [this blog](https://hao-ai-lab.github.io/blogs/text-diffusion/).**
 
 
-## 📝 Citation
-
-If you find d3LLM useful for your research, please star our project and cite our work.
-
-```bibtex
-@article{preprint'25:d3llm,
-  author  = {Yu-Yang Qian and Junda Su and Lanxiang Hu and Peiyuan Zhang and Zhijie Deng and Peng Zhao and Hao Zhang},
-  title   = {d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation},
-  journal = {ArXiv preprint},
-  volume  = {to appear},
-  note    = {\url{https://github.com/hao-ai-lab/d3LLM} [Accessed: 2025-12-11]},
-  year    = {2025}
-}
-```
-
-***The paper about d3LLM and AUP is coming soon. Please stay tuned!***
-
-
 
 ## 🙏 Acknowledgments
 
@@ -204,6 +186,21 @@ This project builds upon excellent open-source work:
 - [D2F](https://arxiv.org/abs/2508.09192) - Discrete diffusion forcing
 - [dParallel](https://arxiv.org/abs/2509.26488) - Distilled dLLMs
 - [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) - Evaluation framework
+
+## 📝 Citation
+
+If you find our d3LLM or the AUP metric useful for your research, please star our project and cite our work.
+
+```bibtex
+@article{arxiv'26:d3llm,
+  title   = {d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation},
+  author  = {Yu-Yang Qian and Junda Su and Lanxiang Hu and Peiyuan Zhang and Zhijie Deng and Peng Zhao and Hao Zhang},
+  journal = {ArXiv preprint},
+  volume  = {arXiv:2601.07568},
+  year    = {2026}
+}
+```
+
 
 
 <div align="center">
