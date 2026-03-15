@@ -11,6 +11,7 @@
 This is the official implementation of the paper [d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation](https://arxiv.org/abs/2601.07568), where we introduce a novel recipe for building an ultra-fast diffusion language model named ***d3LLM*** (_pseuDo-Distilled Diffusion LLM_) 🚀.
 
 ## 📣 News
+- `[2026/03/15]`: 🏎️ SGLang support is here! d3LLM models are now supported in the SGLang engine (PR [#20615](https://github.com/sgl-project/sglang/pull/20615)) — try it out [here](#efficient-serving-with-sglang-engine)! (Thanks to [Hao-Cong Wu](https://github.com/flowermouse) for the contribution!)
 - `[2026/02/01]`: We have updated our d3LLM paper on 📄ArXiv. See our [updated paper](https://arxiv.org/abs/2601.07568).
 - `[2026/01/12]`: We release the paper on 📄ArXiv! See our [paper](https://arxiv.org/abs/2601.07568).
 - `[2026/12/29]`: We release a Leaderboard📊 of diffusion LLMs, see our [dLLM Leaderboard](https://huggingface.co/spaces/d3LLM/dLLM_Leaderboard).
@@ -158,7 +159,7 @@ Our d3LLM achieves the highest AUP ([_Accuracy Under Parallelism_](https://hao-a
 
 </div>
 
-### Acceleration Highlights (on GSM8K-CoT Dataset)
+### Acceleration Highlights (on GSM8K-CoT Dataset, with Huggingface Backend)
 
 <div align="center">
 
@@ -173,10 +174,62 @@ Our d3LLM achieves the highest AUP ([_Accuracy Under Parallelism_](https://hao-a
 > **Want more details?** Check out our dLLM leaderboard and comprehensive results at 🌐 **[this blog](https://hao-ai-lab.github.io/blogs/text-diffusion/)**.
 
 
+
+## Efficient Serving with SGLang Engine
+
+We provide SGLang support for d3LLM inference (see PR [#20615](https://github.com/sgl-project/sglang/pull/20615)). Install the patched version with:
+
+```bash
+pip install uv
+uv pip install "sglang[all] @ git+https://github.com/sgl-project/sglang.git@refs/pull/20615/head#subdirectory=python"
+```
+
+Then launch the server:
+
+```bash
+# d3LLM-LLaDA
+python -m sglang.launch_server \
+    --model d3LLM/d3LLM_LLaDA \
+    --trust-remote-code \
+    --attention-backend flashinfer \
+    --dllm-algorithm FullAttnMultiBlock \
+    --mem-fraction-static 0.8 \
+    --cuda-graph-max-bs 32
+
+# d3LLM-Dream
+python -m sglang.launch_server \
+    --model d3LLM/d3LLM_Dream \
+    --trust-remote-code \
+    --attention-backend flashinfer \
+    --dllm-algorithm FullAttnMultiBlock \
+    --mem-fraction-static 0.8 \
+    --cuda-graph-max-bs 32
+```
+
+### Acceleration Highlights using [SGLang Engine](https://github.com/sgl-project/sglang/pull/20615)
+
+**Dataset:** GSM8K-CoT (zero-shot)  
+**Decoding Method:** FullAttnMultiBlock  
+**TP Size:** 1
+
+| Model | Threshold | Batch Size | B200 TPS | H800 TPS | A800 TPS | TPF | Accuracy |
+|-------|-----------|------------|----------|----------|----------|-----|----------|
+| Qwen2.5-7B-Instruct | / | 1 | 274.7 | 108.6 | 96.8 | 1 | 74.1% |
+| Qwen3-8B | / | 1 | 234.2 | 98.3 | 90.0 | 1 | 93.63% |
+| d3LLM-LLaDA (8B dense) | 0.5 | 1 | 1240.99 | 545.31 | 251.61 | 9.91 | 75.36% |
+| d3LLM-LLaDA (8B dense) | 0.5 | 4 | 1310.18 | 551.87 | 249.98 | 8.56 | 75.12% |
+| d3LLM-Dream (7B dense) | 0.4 | 1 | 586.77 | 280.48 | 125.57 | 4.89 | 80.89% |
+| d3LLM-Dream (7B dense) | 0.4 | 4 | 676.81 | 281.82 | 127.85 | 4.22 | 80.76% |
+
+> **TPS** = Tokens Per Second, **TPF** = Tokens Per Forward (average forward passes per token)
+
+
+
 ## 🏆 Diffusion LLM Leaderboard
 
 We further present a leaderboard that compares different diffusion LLMs across five representative benchmark tasks, using the AUP score (Accuracy Under Parallelism) as the primary evaluation metric, which is a hardware-independent metric that measures both the efficiency and the performance of a
 dLLM. **More details can be found in [AUP_leaderboard](AUP_leaderboard/) and 🌐 [this blog](https://hao-ai-lab.github.io/blogs/text-diffusion/).**
+
 
 
 
