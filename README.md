@@ -208,11 +208,9 @@ python -m sglang.launch_server \
 
 ### Acceleration Highlights using [SGLang Engine](https://github.com/sgl-project/sglang/pull/20615)
 
-**Dataset:** GSM8K-CoT (zero-shot)  
-**Decoding Method:** FullAttnMultiBlock  
-**TP Size:** 1
+We evaluate d3LLM models on GSM8K-CoT (zero-shot) dataset using the [SGLang engine](https://github.com/sgl-project/sglang/pull/20615), with the FullAttnMultiBlock decoding algorithm (TP=1):
 
-| Model | Threshold | Batch Size | B200 TPS | H800 TPS | A800 TPS | TPF | Accuracy |
+| Model | Threshold | Batch Size | B200 TPS | H100 TPS | A100 TPS | TPF | Accuracy |
 |-------|-----------|------------|----------|----------|----------|-----|----------|
 | Qwen2.5-7B-Instruct | / | 1 | 274.7 | 108.6 | 96.8 | 1 | 74.1% |
 | Qwen3-8B | / | 1 | 234.2 | 98.3 | 90.0 | 1 | 93.63% |
