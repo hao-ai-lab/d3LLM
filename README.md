@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="asset/imgs/d3LLM logo.png" width="40%" alt="d3LLM Logo" />
+</p>
+
 # d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation 🚀
 
 [![Paper](https://img.shields.io/badge/Paper-arXiv:2601.07568-orange)](https://arxiv.org/abs/2601.07568)
