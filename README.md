@@ -12,9 +12,10 @@
 [![d3LLM-Coder](https://img.shields.io/badge/🤗-d3LLM--Coder-yellow)](https://huggingface.co/d3LLM/d3LLM_Dream_Coder)
 [![dLLM-Leaderboard](https://img.shields.io/badge/📊-dLLM--Leaderboard-blue)](https://huggingface.co/spaces/d3LLM/dLLM_Leaderboard)
 
-This is the official implementation of the paper [d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation](https://arxiv.org/abs/2601.07568), where we introduce a novel recipe for building an ultra-fast diffusion language model named ***d3LLM*** (_pseuDo-Distilled Diffusion LLM_) 🚀.
+This is the official implementation of the paper [d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation](https://arxiv.org/abs/2601.07568) (**ICML'26**), where we introduce a novel recipe for building an ultra-fast diffusion language model named ***d3LLM*** (_pseuDo-Distilled Diffusion LLM_) 🚀.
 
 ## 📣 News
+- `[2026/05/01]`: 🎉 Our d3LLM paper is accepted by **ICML 2026**! 🥳
 - `[2026/03/15]`: 🏎️ SGLang support is here! d3LLM models are now supported in the SGLang engine (PR [#20615](https://github.com/sgl-project/sglang/pull/20615)) — try it out [here](#efficient-serving-with-sglang-engine)! (Thanks to [Hao-Cong Wu](https://github.com/flowermouse) for the contribution!)
 - `[2026/02/01]`: We have updated our d3LLM paper on 📄ArXiv. See our [updated paper](https://arxiv.org/abs/2601.07568).
 - `[2026/01/12]`: We release the paper on 📄ArXiv! See our [paper](https://arxiv.org/abs/2601.07568).
@@ -250,12 +251,12 @@ This project builds upon excellent open-source work:
 If you find our d3LLM or the AUP metric useful for your research, please star our project and cite our work.
 
 ```bibtex
-@article{arxiv'26:d3llm,
-  title   = {d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation},
-  author  = {Yu-Yang Qian and Junda Su and Lanxiang Hu and Peiyuan Zhang and Zhijie Deng and Peng Zhao and Hao Zhang},
-  journal = {ArXiv preprint},
-  volume  = {arXiv:2601.07568},
-  year    = {2026}
+@inproceedings{ICML'26:d3llm,
+  title     = {d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation},
+  author    = {Yu-Yang Qian and Junda Su and Lanxiang Hu and Peiyuan Zhang and Zhijie Deng and Peng Zhao and Hao Zhang},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning (ICML)},
+  pages     = {to appear},
+  year      = {2026}
 }
 ```
 
